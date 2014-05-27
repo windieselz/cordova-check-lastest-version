@@ -6,9 +6,9 @@
 //  Copyright (c) 2557 Kittipong Kulapruk. All rights reserved.
 //
 
-#import "AdfitYoutube.h"
+#import "checkVersion.h"
 
-@implementation AdfitYoutube
+@implementation checkVersion
 
 - (void) checkDaily:(CDVInvokedUrlCommand*)command{
 	self.callbackId = command.callbackId;
