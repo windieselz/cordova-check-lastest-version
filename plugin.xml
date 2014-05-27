@@ -36,6 +36,8 @@
 
         <header-file src="src/ios/UIDevice+SupportedDevices.h" />
         <source-file src="src/ios/UIDevice+SupportedDevices.m" />
+
+        <resource-file src="src/ios/Harpy.bundle" />
     </platform>
 
 
