@@ -18,6 +18,10 @@
     [[Harpy sharedInstance] setAppID:appId];
     [[Harpy sharedInstance] setAppName:appName];
     [[Harpy sharedInstance] setAlertType:HarpyAlertTypeForce];
+    [[Harpy sharedInstance] checkVersion];
+    //[[Harpy sharedInstance] checkVersionDaily];
+    NSLog(@"Check appVersion : %@  %@ ",appId,appName);
+
 }
 
 
