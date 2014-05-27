@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+           id="com.jandystudio.adfit.versionchecking"
+      version="0.0.1">
+
+    <name>versioncheck</name>
+    <description>Cordova versioncheck Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,modal</keywords>
+    <repo></repo>
+
+    <engines>
+      <engine name="cordova" version=">=3.1.0" /><!-- Needs cordova/urlutil -->
+    </engines>
+
+    <js-module src="www/checkVersion.js" name="checkVersion">
+        <clobbers target="checkVersion" />
+    </js-module>
+
+   
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="checkVersion">
+                <param name="ios-package" value="checkVersion" />
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/Harpy.h" />
+	    <source-file src="src/ios/Harpy.m" />
+
+        <header-file src="src/ios/checkVersion.h" />
+        <source-file src="src/ios/checkVersion.m" />
+    </platform>
+
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/widget">
+            <feature name="checkVersion">
+                <param name="android-package" value="com.adfit.plugins.checkVersion"/>
+            </feature>
+        </config-file>
+        
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+        </config-file>
+
+        <source-file src="src/android/com/adfit/plugins/checkVersion.java"
+            target-dir="src/com/adfit/plugins"/>
+        <source-file src="src/android/libs/android-query-full.0.26.7.jar" target-dir="libs/"/>
+
+    </platform>
+
+</plugin>
