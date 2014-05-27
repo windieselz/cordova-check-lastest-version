@@ -19,12 +19,22 @@ import com.androidquery.service.MarketService;
 
 public class checkVersion extends CordovaPlugin implements Serializable {
 	
+	private CallbackContext callback;
+	
 	@Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 		Log.d("checkVersion","start android cordova check version");
-		if(action.equals("checkDaily")) {
-			MarketService ms = new MarketService(this.cordova.getActivity());
-		    ms.level(MarketService.MINOR).checkVersion();
+		callback = callbackContext;
+		if(action.equals("checkVersionDaily")) {
+			this.cordova.getThreadPool().execute(new Runnable()
+		    {
+		        public void run()
+		        {
+		            MarketService ms = new MarketService(cordova.getActivity());
+		    		ms.level(MarketService.MINOR).checkVersion();   
+		    		callback.success();
+		        }
+		    });
         	return true;
         }        
 		
