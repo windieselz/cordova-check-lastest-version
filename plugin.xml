@@ -38,6 +38,7 @@
         <source-file src="src/ios/UIDevice+SupportedDevices.m" />
 
         <resource-file src="src/ios/Harpy.bundle" />
+        <framework src="SystemConfiguration.framework" />
     </platform>
 
 
