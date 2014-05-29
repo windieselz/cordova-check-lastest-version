@@ -6,9 +6,9 @@
 //  Copyright (c) 2557 Kittipong Kulapruk. All rights reserved.
 //
 
-#import "AdfitYoutube.h"
+#import "checkVersion.h"
 
-@implementation AdfitYoutube
+@implementation checkVersion
 
 - (void) checkDaily:(CDVInvokedUrlCommand*)command{
 	self.callbackId = command.callbackId;
@@ -18,6 +18,10 @@
     [[Harpy sharedInstance] setAppID:appId];
     [[Harpy sharedInstance] setAppName:appName];
     [[Harpy sharedInstance] setAlertType:HarpyAlertTypeForce];
+    [[Harpy sharedInstance] checkVersion];
+    //[[Harpy sharedInstance] checkVersionDaily];
+    NSLog(@"Check appVersion : %@  %@ ",appId,appName);
+
 }
 
 
